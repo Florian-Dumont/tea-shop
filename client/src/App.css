@@ -1,0 +1,14 @@
+header{
+    background-image:url("./");
+}
+main{
+    background-color: yellow;
+}
+footer{
+    background-color: green;
+}
+
+.choice-the img {
+    display: block;
+    size:500px
+}
