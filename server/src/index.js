@@ -15,7 +15,6 @@ app.use(cors())
 
 app.get("/api/v1/tea/all", (req, res) => {
 
-    
     // effectuer la requete SQL 
 
 });

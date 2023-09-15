@@ -14,6 +14,11 @@ async function home(req, res){
     res.json({ data });
 }
 
+
+
+
+
+
 // page de connection
 async function signin(req, res){
     res.status(200).render("layout", {template: "signin"});

@@ -23,9 +23,9 @@ function Header(){
 
             <nav>
                 <NavLink to ={"/"}>Accueil</NavLink>
-                <NavLink to ={"/tea"}>Thés</NavLink>
-                <NavLink to ={"/about"}>About</NavLink>
-                <NavLink to ={"/signin"}>connexion</NavLink>
+                <NavLink to ={"/the"}>Thés</NavLink>
+                <NavLink to ={"/a-propos"}>Notre histoire</NavLink>
+                <NavLink to ={"/connexion"}>Connexion</NavLink>
             </nav>
         </header>
         </>

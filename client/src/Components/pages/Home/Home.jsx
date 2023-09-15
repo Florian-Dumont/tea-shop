@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 
-import OffredeNoel from '../assets/offre-noel.jpg';
+import OffredeNoel from '../../../assets/offre-noel.jpg';
 // import TheNoir from './img/1.jpg';
-import TheNoir from "../assets/1.jpg";
-import TheVert from "../assets/2.jpg";
-import TheOolong from "../assets/3.jpg";
-import TheBlanc from "../assets/4.jpg";
-import TheRooibos from "../assets/5.jpg";
+import TheNoir from "../../../assets/1.jpg";
+import TheVert from "../../../assets/2.jpg";
+import TheOolong from "../../../assets/3.jpg";
+import TheBlanc from "../../../assets/4.jpg";
+import TheRooibos from "../../../assets/5.jpg";
 
 function Home(){
     return(
