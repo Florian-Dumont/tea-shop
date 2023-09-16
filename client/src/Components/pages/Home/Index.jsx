@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import styles from "./home.module.css";
+
 
 import OffredeNoel from '../../../assets/offre-noel.jpg';
 // import TheNoir from './img/1.jpg';
@@ -14,18 +16,22 @@ function Home(){
             <main>
             <section className="top-promo">
 
-                <h1>C'est noël, profitez-en!</h1>
-                <img src={OffredeNoel} alt="Offre promotionelle"/>
+                <div className={styles.mobileHidden}>
 
-                <p className="mini">Pour toute commande effectué avant le 20 décembre</p>
+                        <h1>C'est noël, profitez-en!</h1>
+                        <img className="christmas-promo" src={OffredeNoel} alt="Offre promotionelle"/>
 
-                <section class="choice">
+                        <p className="mini">Pour toute commande effectué avant le 20 décembre</p>
+
+                </div>
+
+                <section className={styles.choice}>
                     <div>
-                            <h2 class="dot"><span>Choisisez votre thé</span></h2>
+                            <h2 class="dot"><span>Choisissez votre thé</span></h2>
 
 
                     </div>
-                    <div class="choice-the">
+                    <div className={styles.choiceTea}>
                             <Link href="">
                                     <img src={TheNoir} alt=""/>  {/* Lien à modifier avec images dans BDD */}
                                     <p>Thé noir</p>
@@ -50,9 +56,9 @@ function Home(){
                 </section>
             </section>
 
-            <section class="product">
+            <section className={styles.news}>
                  <div>
-                         <h2 class="dot"><span>Notre nouveauté</span></h2>
+                         <h2 className="dot"><span>Notre nouveauté</span></h2>
                          <img src="./ressources/assets/img/product/product1_big.jpg" alt=""/>
                          <p>Thé du hammam</p>
                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, tenetur, in neque atque nulla deserunt officia tempora dignissimos dolorem magnam.</p>
@@ -63,10 +69,10 @@ function Home(){
                          </a>
                  </div>
                  <div>
-                         <h2 class="dot"><span>Notre best-seller</span></h2>
+                         <h2 className="dot"><span>Notre best-seller</span></h2>
                          <img src="./ressources/assets/img/product/product4_big.jpg" alt=""/>
                          <p>Infusion Herboriste</p>
-                         <p class="lorem">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, error delectus nulla qui porro provident ex dignissimos blanditiis animi quas.</p>
+                         <p className="lorem">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, error delectus nulla qui porro provident ex dignissimos blanditiis animi quas.</p>
                          <p>A partir de</p>
                          <p>0.00€</p>
                          <a href="./pages/product.html">
@@ -74,7 +80,7 @@ function Home(){
                          </a>
                  </div>
                  <div>
-                         <h2 class="dot"><span>Notre coup de coeur</span></h2>
+                         <h2 className="dot"><span>Notre coup de coeur</span></h2>
                          <img src="./ressources/assets/img/product/product3_big.jpg" alt=""/>
                          <p>Blue of London</p>
                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor sed molestiae eum deleniti pariatur libero ab illo minima aperiam amet.</p>

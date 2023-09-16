@@ -5,14 +5,12 @@ import TeaSection from "./TeaSection"
 function Tea() {
     return (
         <>
-            <main id="tea">
+            <main id="tea" className={styles.main}>
                 
             
                 <TeaSection/>
                
             
-                
-
             </main>
         </>
     );

@@ -1,24 +1,26 @@
 import {NavLink} from "react-router-dom"
 import React from "react"
-import logo from "../assets/logo.png"
+import logo from "../../../assets/logo.png"
+import styles from "./header.module.css"
 // import svg from "../assets/ribbon.svg"
 
 
 function Header(){
     return(
         <>
-        <header>
+        <header className={styles.header}>
 
                 <p class="header-delivery">Livraison offerte à partir de 65€ d'achat !</p>
                 {/* <img class="rotate" src={svg} alt=""/>   */}
-                            
-                <div class="logo">
-                        <NavLink to ={"/"}><img src={logo} alt=""/></NavLink>
-                        <div class="ctn-shop">
+
+                <div class="ctn-shop">
                                 <p>Mon panier</p>
                                 <i class="fa-solid fa-cart-shopping"></i>
                                 <p class="shop-price">42.00€</p>
-                        </div>
+                </div>     
+
+                <div class="logo">
+                        <NavLink to ={"/"}><img src={logo} alt=""/></NavLink>
                 </div>
 
             <nav>

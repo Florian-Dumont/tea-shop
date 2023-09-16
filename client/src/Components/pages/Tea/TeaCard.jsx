@@ -9,7 +9,7 @@ function TeaCard(){
 
 
 const [datas, setDatas] = useState(null);
-const [categories, setCategories] = useState(null);
+/* const [categories, setCategories] = useState(null); */
 
 useEffect(() => {
     async function getData() {
@@ -27,7 +27,7 @@ useEffect(() => {
     getData();
 }, []);
 
-useEffect(()=> {
+/* useEffect(()=> {
     async function getCategories(){
         try {
             const categoryResult = await (
@@ -40,12 +40,12 @@ useEffect(()=> {
         }
     }
     getCategories();
-},[]);
+},[]); */
 
 return (
     <>
 
-        {!categories ? (
+        {/* {!categories ? (
             <p>LOADING ...</p>
         ) : (
             categories.map((category) => (
@@ -58,7 +58,7 @@ return (
                 </article>
                 
             ))
-        )}
+        )} */}
 
         {!datas ? (
             <p>LOADING ...</p>
@@ -66,7 +66,7 @@ return (
             datas.map((data) => (
                 <article key={data.id} >
                     <h2>{data.label_1}</h2>                    
-                    <img src={"img" + data.url_image} alt={data.label_1} />
+                    <img src={"img/" + data.url_image} alt={data.label_1} />
                     <p>A partir de</p>
                     <p>{data.price}</p>                    
                     <Link to ={"/product_page"}>Voir ce produit</Link>
@@ -80,3 +80,5 @@ return (
 };
 
 export default TeaCard;
+
+

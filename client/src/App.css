@@ -1,5 +1,16 @@
-header{
-    background-image:url("./assets/bg.jpg");
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+html {
+    font-size: 62.5%;
+}
+body {
+    font-size: 16px;
+}
+a{
+    text-decoration: none;
 }
 main{
     background-color: yellow;
@@ -8,7 +19,4 @@ footer{
     background-color: green;
 }
 
-.choice-the img {
-    display: block;
-    size:500px
-}
+

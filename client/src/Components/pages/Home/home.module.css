@@ -1,0 +1,47 @@
+.mobileHidden {
+    display: none;
+}
+
+.choice {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+    background-color: white;
+}
+h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+/* .christmas-promo {
+    width: 100vw;
+} */
+
+.choiceTea {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.choiceTea a {
+    width: 45%;
+    margin-bottom: 25px;
+}
+.choiceTea img {
+    display: block;
+    margin: auto;
+}
+.choiceTea p {
+    text-align: center;
+}
+.news {
+    width: 80%;
+    margin: auto;
+}
+.news p {
+    text-align: center;
+    margin-bottom: 15px;
+}

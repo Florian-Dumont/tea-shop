@@ -1,8 +1,8 @@
 import './App.css';
 // import {useState, useEffect} from "react";
 import { Routes, Route} from "react-router-dom";
-import Home from "./Components/pages/Home/Home";
-import Header from './Components/Header';
+import Home from "./Components/pages/Home/Index";
+import Header from './Components/pages/Header/Header';
 import Footer from './Components/Footer';
 import Tea from "./Components/pages/Tea/Index"
 
