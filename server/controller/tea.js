@@ -27,14 +27,34 @@ const getCategory = async (req,res) => {
 }
 
 const getProductByCategories = async (req,res) =>{
-     const query = "SELECT * FROM tea INNER JOIN category ON tea.category_id = category.id"
+     const query = "SELECT * FROM tea INNER JOIN category WHERE tea.category_id = category.id"
 
      const [datas] = await Query.find(query)
 
      res.status(200).json({datas})
 }
+const getNewProduct = async (req,res)=>{
+    const query = " SELECT * FROM tea WHERE id = 4  "
+
+    const [datas] = await Query.find(query)
+    res.status(200).json({datas})
+}
+const getAverageProduct =  async (req,res) => {
+    const query = "SELECT * FROM tea WHERE vote_average = 3"
+
+    const [datas] = await Query.find(query)
+
+    res.status(200).json({datas})
+}
+const getFavoriteProduct = async (req,res) =>{
+    const query = "SELECT * FROM tea WHERE our_favorite = 1"
+
+    const [datas] = await Query.find(query)
+    res.status(200).json({datas})
+
+}
+     
 
 
 
-
-export { getAll,getPrice,getCategory, getProductByCategories };
+export { getAll,getPrice,getCategory, getProductByCategories,getNewProduct,getAverageProduct,getFavoriteProduct };
