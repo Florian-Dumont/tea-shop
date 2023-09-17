@@ -1,20 +1,81 @@
 import { Link } from "react-router-dom";
 import styles from "./home.module.css";
-
+import { useState,useEffect } from "react";
 
 import OffredeNoel from '../../../assets/offre-noel.jpg';
-// import TheNoir from './img/1.jpg';
-import TheNoir from "../../../assets/1.jpg";
-import TheVert from "../../../assets/2.jpg";
-import TheOolong from "../../../assets/3.jpg";
-import TheBlanc from "../../../assets/4.jpg";
-import TheRooibos from "../../../assets/5.jpg";
+
 
 function Home(){
+
+const [categories, setCategories] = useState(null);
+const [Product, setProduct ] = useState(null);
+const [avgProduct, setAvgProduct] = useState(null);
+const [favProduct, setFavProduct] = useState(null);
+
+
+useEffect(()=> {
+        // console.log("salut 2 ")
+        async function getCategories(){
+            try {
+                const categoryResult = await (
+                    await fetch("/api/v1/tea/categories")
+                ).json()
+                setCategories(categoryResult.datas)
+                // console.log(categories)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        getCategories();
+    },[]);
+    //console.log(categories)
+
+            useEffect(()=> {
+                async function getProduct(){
+                    try {
+                        const Product = await (
+                            await fetch("/api/v1/tea/newproduct")
+                        ).json()
+                        
+                        setProduct(Product.datas)
+                        //console.log(Product)
+                    } catch (error) {
+                        console.log(error)
+                    }
+                }
+                getProduct();
+            },[]);
+
+            useEffect(()=>{
+                async function getAvgProduct(){
+                        try {
+                           const avgProduct = await ( await fetch ("/api/v1/tea/bestseller")
+                           ).json() 
+                           setAvgProduct(avgProduct.datas)    
+                        } catch (error) {
+                                console.log(error)
+                        }
+                }
+                getAvgProduct();
+            },[])
+
+            useEffect(()=>{
+                async function getFavProduct(){
+                        try {
+                            const favProduct = await ( await fetch("api/v1/tea/favorite")
+                            ).json()
+                            setFavProduct(favProduct.datas)  
+                        } catch (error) {
+                                console.log(error)
+                        }
+                }
+                getFavProduct();
+            },[])
+
     return(
         <>
             <main>
-            <section className="top-promo">
+            <section className={styles.toppromo}>
 
                 <div className={styles.mobileHidden}>
 
@@ -32,64 +93,69 @@ function Home(){
 
                     </div>
                     <div className={styles.choiceTea}>
+
+                           {!categories ? (<p>LOADING...</p>) : (categories.map((category) => (
+
                             <Link href="">
-                                    <img src={TheNoir} alt=""/>  {/* Lien à modifier avec images dans BDD */}
-                                    <p>Thé noir</p>
+                                    <img src={"img/"+category.url_image } alt=""/>
+                                    <p className={styles.categoryLabel}>{category.label}</p>
                             </Link>
-                            <Link href="">
-                                    <img src={TheVert} alt=""/> {/* Lien à modifier avec images dans BDD */}
-                                    <p>Thé vert</p>
-                            </Link>
-                            <Link href="">
-                                    <img src={TheOolong} alt=""/> {/* Lien à modifier avec images dans BDD */}
-                                    <p>Oolong</p>
-                            </Link>
-                            <Link href="">
-                                    <img src={TheBlanc} alt=""/> {/* Lien à modifier avec images dans BDD */}
-                                    <p>Thé blanc</p>
-                            </Link>
-                            <Link href="">
-                                    <img src={TheRooibos} alt=""/> {/* Lien à modifier avec images dans BDD */}
-                                    <p>Thé Rooibos</p>
-                            </Link>
+
+                        )))}   
                     </div>
                 </section>
             </section>
 
             <section className={styles.news}>
                  <div>
-                         <h2 className="dot"><span>Notre nouveauté</span></h2>
-                         <img src="./ressources/assets/img/product/product1_big.jpg" alt=""/>
-                         <p>Thé du hammam</p>
-                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, tenetur, in neque atque nulla deserunt officia tempora dignissimos dolorem magnam.</p>
-                         <p>A partir de</p>
-                         <p>0.00€</p>
-                         <a href="./pages/product.html">
-                                 <p>Voir ce produit</p>
-                         </a>
+                         
+                         {!Product ? (
+                                <p>Loading....</p>
+                        ) : (Product.map((lastPro) =>(
+                                <>
+                                        <h2><span>Notre nouveauté</span></h2>
+                                        <img src={"img/" + lastPro.url_product} alt={lastPro.label_1}/>
+                                        <p>{lastPro.label_1}</p>
+                                        <p>{lastPro.description}</p>
+                                        <p>A partir de </p>
+                                        <p>9,00€</p>
+                                        <Link to ={"/product_page"}>Voir ce produit</Link>  
+                                </>  
+                        )))}
+                         
                  </div>
-                 <div>
-                         <h2 className="dot"><span>Notre best-seller</span></h2>
-                         <img src="./ressources/assets/img/product/product4_big.jpg" alt=""/>
-                         <p>Infusion Herboriste</p>
-                         <p className="lorem">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, error delectus nulla qui porro provident ex dignissimos blanditiis animi quas.</p>
-                         <p>A partir de</p>
-                         <p>0.00€</p>
-                         <a href="./pages/product.html">
-                                 <p>Voir ce produit</p>
-                         </a>
+                  <div>
+                        {!avgProduct ? (
+                                <p>Loading...</p>
+                        ) : (avgProduct.map((avgPro) =>(
+                                <>
+                                        <h2><span>Notre best-seller</span></h2>
+                                        <img src={"img/" + avgPro.url_product} alt={avgPro.label_1}/>
+                                        <p>{avgPro.label_1}</p>
+                                        <p>{avgPro.description}</p>
+                                        <p>A partir de </p>
+                                        <p>9,00€</p>
+                                        <Link to ={"/product_page"}>Voir ce produit</Link>                                </>
+                        )))}
+                         
                  </div>
-                 <div>
-                         <h2 className="dot"><span>Notre coup de coeur</span></h2>
-                         <img src="./ressources/assets/img/product/product3_big.jpg" alt=""/>
-                         <p>Blue of London</p>
-                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor sed molestiae eum deleniti pariatur libero ab illo minima aperiam amet.</p>
-                         <p>A partir de</p>
-                         <p>0.00€</p>
-                         <a href="./pages/product.html">
-                                 <p>Voir ce produit</p>
-                         </a>
-                 </div>
+                 <div>  
+                        {!favProduct ? (
+                                <p>Loading....</p>
+                        ) : (favProduct.map((favPro)=>(
+                                <>
+                                        <h2><span>Notre coup de coeur</span></h2>
+                                        <img src={"img/" + favPro.url_product}alt={favPro.label_1}/>
+                                        <p>{favPro.label_1}</p>
+                                        <p>{favPro.description}</p>
+                                        <p>A partir de </p>
+                                        <p>9,00€</p>
+                                        <Link to ={"/product_page"}>Voir ce produit</Link> 
+
+                                </>
+                        )))}
+                         
+                 </div> 
              
                 </section>
                         
@@ -100,28 +166,3 @@ function Home(){
 
 
 export default Home;
-
-
-                
-        {/* // <div class="slider">
-        //         <figure class="slider-figure is-active">
-        //                 <figcaption>
-        //
-        //                 </figcaption>
-        //                 <img src="./ressources/assets/img/slider/1.jpg" alt="">
-        //         </figure>
-        //         <figure class="slider-figure">
-        //                 <figcaption>
-        //
-        //                 </figcaption>
-        //                 <img src="./ressources/assets/img/slider/2.jpg" alt="">
-        //         </figure>
-        //      
-        //         <nav>
-        //                 <a href="#" class="slider-nav-link prev"><i class="fa-solid fa-chevron-left"></i></a>
-        //                 <a href="#" class="slider-nav-link next"><i class="fa-solid fa-chevron-right"></i></a>
-        //              
-        //         </nav>
-        //      
-        // </div>
-        //  */}

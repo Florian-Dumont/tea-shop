@@ -1,0 +1,50 @@
+footer {
+    width: 100%;
+    background-image: url("../../../assets/bg.jpg");
+    color: #f2f2f2;
+    background-size: cover;
+    padding-bottom: 25px;
+  }
+  .pictogramFooter {
+    width: 100%;
+    background-color: #879e0f;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 25px;
+}
+.footerFigure {
+    width: 40%;
+    text-align: center;
+    margin: 5px 2% 5px 2%;
+}
+footer .pictogramFooter figcaption {
+    margin: 10px 0;
+}
+footer section {
+    background-color: #96b011;
+    padding: 25px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 25px 0;
+    padding: 0;
+}
+footer article {
+    justify-content: center;
+    text-align: center;
+    margin: 2rem;
+}
+footer article h4 {
+    font-size: 25px;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+}
+footer article p {
+    font-family: 'Open sans';
+    color: rgb(214, 214, 214);
+    font-size: 20px;
+    font-weight: light;
+    line-height: 40px;
+}

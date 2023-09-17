@@ -1,7 +1,9 @@
 .mobileHidden {
     display: none;
 }
-
+.toppromo{
+margin-bottom:3rem;
+}
 .choice {
     width: 100vw;
     display: flex;
@@ -11,37 +13,96 @@
     align-items: center;
     padding: 50px 0;
     background-color: white;
+    margin-top:3rem
 }
 h2 {
     text-align: center;
     margin-bottom: 25px;
+    color: #879e0f;
 }
 /* .christmas-promo {
     width: 100vw;
 } */
-
 .choiceTea {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    
 }
 .choiceTea a {
-    width: 45%;
-    margin-bottom: 25px;
+    width: 40%;
+    margin: 0px 2% 25px 2%;
 }
 .choiceTea img {
+    width: 100%;
     display: block;
     margin: auto;
 }
 .choiceTea p {
     text-align: center;
 }
+.categoryLabel {
+    font-family: 'Amaranth';
+    font-weight: 500;
+    color: #666;
+}
 .news {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    justify-content: center;    
+    background-color: white;
+    padding: 3rem 0;
+}
+.news div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    
+}
+.news img {
     width: 80%;
     margin: auto;
 }
 .news p {
+    width: 80%;
+    margin:auto;
     text-align: center;
+    justify-content: center;
     margin-bottom: 15px;
 }
+.news h2 span{
+    background-color:#fff;
+    padding:0 10px;
+}
+.news h2{    
+    position:relative;
+    justify-content: space-between;
+    box-shadow:0 16px 0 0 #fffffff3 inset, 0 17px 0 0 #95b0117e inset ;
+}
+.news h2::before{
+    content:"";
+    position:absolute;
+    left:0;
+    width:100%;
+}
+.news div a {
+    font-size:2rem;
+    padding:20px;
+    background-color: #b09067;
+    position:relative;
+    justify-content: center;
+    text-align: center;
+    margin:auto auto;
+    color:white;
+    margin-bottom:3rem;
+}
+.news div p:first-of-type {
+    font-weight:bold;
+}
+.news div p:last-of-type{
+    font-weight:bold
+}
+

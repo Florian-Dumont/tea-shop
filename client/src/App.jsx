@@ -3,7 +3,7 @@ import './App.css';
 import { Routes, Route} from "react-router-dom";
 import Home from "./Components/pages/Home/Index";
 import Header from './Components/pages/Header/Header';
-import Footer from './Components/Footer';
+import Footer from './Components/pages/Footer/Index';
 import Tea from "./Components/pages/Tea/Index"
 
 

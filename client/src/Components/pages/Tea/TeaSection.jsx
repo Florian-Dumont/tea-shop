@@ -1,6 +1,6 @@
-import TeaCard from "./TeaCard";
 import { useState,useEffect } from "react";
 import { Link } from "react-router-dom";
+import styles from "./teaSection.module.css"
 
 function TeaSection(){
 
@@ -55,36 +55,38 @@ function TeaSection(){
         getPrice()
     },[])
 
+    
+
     return (
 
-<>
+        <>
+            
             {!categories || !productByCategories ? (
-                <p>LOADING ...</p>
+            <p>LOADING ...</p>
             ) : (
-                <section>
-                    {categories.map((category) => (
+               <>   
+                {categories.map((category) => (
+                    <section className={styles.section}>
+                <div key={category.id} className={styles.container}>
+                    <h2>{category.label}</h2>
+                    <img src={"img/" + category.url_image} alt={category.label} className={styles.categoryImage} />
+                    <p>{category.description}</p>
 
-                        <div key={category.id}>
-                            <h2>{category.label}</h2>
-                            <img src={"img/" + category.url_image} alt={category.label} />
-                            <p>{category.description}</p>
-
-                            {console.log("Salut c'est moi que tu cherche le " + productByCategories)}
-
-                            {productByCategories
-                                .filter((product) => product.category_id === category.id)
-                                .map((product) => (
-                                    <div key={product.id}>
-                                        <h2>{product.label}</h2>
-                                        <img src={"img/" + product.url_image} alt={product.label} />
-                                        <p> A partir de </p>
-                                        {/* <p>{product.price}</p> */}
-                                        <Link to={"/product_page"}>Voir ce produit</Link>
-                                    </div>
-                                ))}
+                    {productByCategories
+                    .filter((product) => product.category_id === category.id)                    
+                    .map((product) => (                        
+                        <div key={product.id} className={styles.cards} >
+                        <h3>{product.label_1}</h3>
+                        <img src={"img/" + product.url_product} alt={product.label_1} />
+                        <p> A partir de </p>
+                        <p className={styles.price}>9.00€</p>
+                        <Link to={"/product_page"} className={styles.buttonLink}>Voir ce produit</Link>
                         </div>
                     ))}
-                </section>
+                </div>
+            </section>
+                ))}
+                </>
             )}
         </>
     );
@@ -94,35 +96,5 @@ export default TeaSection;
 
 
 
-                // categories.map((category) => (
-                //     <section key={category.id} className="listing">
-                //         <h2>{category.label}</h2>                    
-                //         <img src={"img/" + category.url_image} alt={category.label} />                  
-                //         <p>{category.description}</p>                       
-                        
-                //         {/* <TeaCard key={category.id} />                 */}
-                        
-                //     </section>
-                // ))
-
-
-
-                // categories.map((category) => {
-                //     const teasForCategory = productByCategories.filter(
-                //       (tea) => tea.category_id === category.id
-                //     );
-                  
-                //     return (
-                //       <section key={category.id} className="listing">
-                //         <h2>{category.label}</h2>
-                //         <img src={"img/" + category.url_image} alt={category.label} />
-                //         <p>{category.description}</p>
-                  
-                //         {teasForCategory.map((tea) => (
-                //           <TeaCard key={tea.id} tea={tea} />
-                //         ))}
-                //       </section>
-                //     );
-                //   })
 
 

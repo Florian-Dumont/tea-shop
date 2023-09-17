@@ -1,30 +1,32 @@
+import styles from "./footer.module.css"
+
 function Footer(){
     return(
         <>
 
 <footer>
-            <div class="pictogram_footer">
-                <figure>
+            <div className={styles.pictogramFooter}>
+                <figure className={styles.footerFigure}>
                     <i class="fa-solid fa-lock fa-2xl"></i>
                     <figcaption>Paiement sécurisé</figcaption>
                 </figure>
 
-                <figure>
+                <figure className={styles.footerFigure}>
                     <i class="fa-solid fa-truck fa-flip-horizontal fa-2xl"></i>
                     <figcaption>Ma livraison offerte</figcaption>
                 </figure>
 
-                <figure>
+                <figure className={styles.footerFigure}>
                     <i class="fa-sharp fa-regular fa-money-bill-1 fa-2xl"></i>
                     <figcaption>Carte de fidélité</figcaption>
                 </figure>
 
-                <figure>
+                <figure className={styles.footerFigure}>
                     <i class="fa-solid fa-phone fa-2xl"></i>
                     <figcaption>Service client</figcaption>
                 </figure>
 
-                <figure>
+                <figure className={styles.footerFigure}>
                     <i class="fa-sharp fa-solid fa-circle-check fa-2xl"></i>
                     <figcaption>Garantie qualité</figcaption>
                 </figure>

@@ -10,16 +10,16 @@ function Header(){
         <>
         <header className={styles.header}>
 
-                <p class="header-delivery">Livraison offerte à partir de 65€ d'achat !</p>
+                <p className={styles.headerDelivery}>Livraison offerte à partir de 65€ d'achat !</p>
                 {/* <img class="rotate" src={svg} alt=""/>   */}
 
-                <div class="ctn-shop">
-                                <p>Mon panier</p>
+                <div className={styles.ctnShop}>
+                                <p className={styles.hidMob}>Mon panier</p>
                                 <i class="fa-solid fa-cart-shopping"></i>
                                 <p class="shop-price">42.00€</p>
                 </div>     
 
-                <div class="logo">
+                <div className={styles.logo}>
                         <NavLink to ={"/"}><img src={logo} alt=""/></NavLink>
                 </div>
 
