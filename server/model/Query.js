@@ -10,6 +10,10 @@ class Query{
         return await pool.query(query, [value]);
     }
 
+    static async findByDatas(query, datas){
+        return await pool.query(query, [...Object.values(datas)]);
+    }
+
     static async write(query, data){
         return await pool.query(query, [...Object.values(data)]);
     }

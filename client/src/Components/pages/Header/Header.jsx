@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import {NavLink} from "react-router-dom"
 import React from "react"
 import logo from "../../../assets/logo.png"
@@ -6,6 +7,9 @@ import styles from "./header.module.css"
 
 
 function Header(){
+
+    const {info} = useSelector(state => state.user);
+
     return(
         <>
         <header className={styles.header}>
@@ -26,8 +30,29 @@ function Header(){
             <nav>
                 <NavLink to ={"/"}>Accueil</NavLink>
                 <NavLink to ={"/the"}>Thés</NavLink>
-                <NavLink to ={"/a-propos"}>Notre histoire</NavLink>
-                <NavLink to ={"/connexion"}>Connexion</NavLink>
+                <NavLink to ={"/notre-histoire"}>Notre histoire</NavLink>
+
+                {/* <NavLink to ={"/utilisateur/connexion"}>Connexion</NavLink> */}
+
+                {!info.isLogged ?  
+					<NavLink
+						to={"utilisateur/connexion"}
+						title="vers le formulaire de connexion"
+					>connexion</NavLink>
+					
+					:
+					<>
+					<NavLink
+						to={"utilisateur/dashboard"}
+						title="aller à votre espace personnel"
+						>dashboard</NavLink>
+					<NavLink
+						to={"utilisateur/deconnexion"}
+						title="Se déconnecter"
+						>déconnexion</NavLink>
+					</>
+					
+				}
             </nav>
         </header>
         </>

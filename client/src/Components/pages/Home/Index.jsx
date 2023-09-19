@@ -119,7 +119,7 @@ useEffect(()=> {
                                         <p>{lastPro.description}</p>
                                         <p>A partir de </p>
                                         <p>9,00€</p>
-                                        <Link to ={"/product_page"}>Voir ce produit</Link>  
+                                        <Link to ={"/produit?label="+ lastPro.label_1 } params= {lastPro.label}>Voir ce produit</Link>  
                                 </>  
                         )))}
                          
@@ -135,7 +135,8 @@ useEffect(()=> {
                                         <p>{avgPro.description}</p>
                                         <p>A partir de </p>
                                         <p>9,00€</p>
-                                        <Link to ={"/product_page"}>Voir ce produit</Link>                                </>
+                                        <Link to ={"/produit?label="+ avgPro.label_1 } params= {avgPro.label}>Voir ce produit</Link> 
+                                </>
                         )))}
                          
                  </div>
@@ -150,12 +151,12 @@ useEffect(()=> {
                                         <p>{favPro.description}</p>
                                         <p>A partir de </p>
                                         <p>9,00€</p>
-                                        <Link to ={"/product_page"}>Voir ce produit</Link> 
+                                        <Link to ={"/produit?label="+ favPro.label_1 } params= {favPro.label}>Voir ce produit</Link> 
 
                                 </>
                         )))}
                          
-                 </div> 
+                 </div>
              
                 </section>
                         

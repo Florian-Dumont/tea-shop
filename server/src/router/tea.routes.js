@@ -10,6 +10,7 @@ router.get("/listing", getProductByCategories);
 router.get ("/newproduct", getNewProduct);
 router.get("/bestseller",getAverageProduct);
 router.get("/favorite",getFavoriteProduct);
+// router.get ("/product_page?label=?",getDetailsProduct);
 
 
 

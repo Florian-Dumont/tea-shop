@@ -80,7 +80,7 @@ function TeaSection(){
                         <img src={"img/" + product.url_product} alt={product.label_1} />
                         <p> A partir de </p>
                         <p className={styles.price}>9.00€</p>
-                        <Link to={"/product_page"} className={styles.buttonLink}>Voir ce produit</Link>
+                        <Link to={"/produit?label="+ product.label_1 } className={styles.buttonLink}>Voir ce produit</Link>
                         </div>
                     ))}
                 </div>
